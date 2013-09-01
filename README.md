@@ -40,13 +40,22 @@ Through Python PIP
 pip install https://github.com/miili/StreamPick/archive/master.zip
 ```
 
+Dependencies
+------------
+streamPick relies on:
+
+* PyQt
+* ObsPy
+* Matplotlib
+
+
 Development
 -----------
 
 Things I miss
 
-[ ] Wadati Diagram
-[ ] Manageable list of Picks
+- [ ] Wadati Diagram
+- [ ] Manageable list of Picks
 
 
 Contributing
