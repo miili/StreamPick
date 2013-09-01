@@ -26,7 +26,7 @@ Usage
 Installation
 ------------
 
-The sure are numerous methods to 
+The sure are numerous methods add a module to Python. Here are the most commen ones.
 
 Clone from the GitHub repository
 
@@ -39,3 +39,18 @@ Through Python PIP
 ```bash
 pip install https://github.com/miili/StreamPick/archive/master.zip
 ```
+
+Development
+-----------
+
+Things I miss
+
+[ ] Wadati Diagram
+[ ] Manageable list of Picks
+
+
+Contributing
+------------
+Everybody is welcome to contribute! :)
+
+Please follow ObsPy's styles https://github.com/obspy/obspy/wiki#developer-corner 
