@@ -52,7 +52,7 @@ streamPick relies on:
 Development
 -----------
 
-Things I miss
+Things to be missed
 
 - Wadati Diagram
 - Manageable list of Picks
