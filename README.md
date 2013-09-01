@@ -26,7 +26,7 @@ Usage
 Installation
 ------------
 
-There sure are numerous methods add a module to Python. Check out these:
+There sure are numerous methods add a module to Python. Check these out:
 
 Clone from the GitHub repository
 
