@@ -1,7 +1,7 @@
 StreamPick
 ==========
 
-A leightweight PyQt frontend to pick seismic wave arrival times in traces contained in an [ObsPy](http://www.obspy.org) Stream object. For further processing the picks can be exported to QuakeML format (see [obspy.core.event](http://docs.obspy.org/master/packages/autogen/obspy.core.event.html) and https://quake.ethz.ch/quakeml/).
+A leightweight PyQt frontend to pick seismic wave arrival times in traces contained in an [ObsPy](http://www.obspy.org) [Stream](http://docs.obspy.org/master/packages/autogen/obspy.core.stream.Stream.html#obspy.core.stream.Stream) object. For further processing the picks can be exported to QuakeML format (see [obspy.core.event](http://docs.obspy.org/master/packages/autogen/obspy.core.event.html) and https://quake.ethz.ch/quakeml/).
 
 Running the Program
 -------------------
@@ -37,5 +37,5 @@ git clone https://github.com/miili/StreamPick.git
 Through Python PIP
 
 ```bash
-pip install 
+pip install https://github.com/miili/StreamPick/archive/master.zip
 ```
