@@ -46,6 +46,8 @@ streamPick relies on:
 
 * PyQt
 * ObsPy
+* NumPy
+* SciPy
 * Matplotlib
 
 
