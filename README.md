@@ -20,8 +20,11 @@ new_picks.picks
 
 Usage
 -----
+StreamPick Gui
+![streamPick-gui](https://raw.github.com/miili/StreamPick/master/img/streamPick-gui.png)
 
-[Screenshots]
+Check ``About`` for useful hotkeys
+![streamPick-about](https://raw.github.com/miili/StreamPick/master/img/streamPick-about.png)
 
 Installation
 ------------
@@ -34,21 +37,26 @@ Clone from the GitHub repository
 git clone https://github.com/miili/StreamPick.git
 ```
 
-Through Python PIP
-
-```bash
-pip install https://github.com/miili/StreamPick/archive/master.zip
+```python
+from streamPick import *
 ```
+see above
+
+# Through Python PIP
+
+# ```bash
+# pip install https://github.com/miili/StreamPick/archive/master.zip
+# ```
 
 Dependencies
 ------------
 streamPick relies on:
 
-* PyQt
-* ObsPy
-* NumPy
-* SciPy
-* Matplotlib
+* PyQt4
+* ObsPy (tested v0.8.4)
+* NumPy (tested v1.7.1)
+* SciPy (tested v0.12.0)
+* Matplotlib (tested v1.1.1rc)
 
 
 Development
