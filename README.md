@@ -14,14 +14,29 @@ from streamPick import *
 st = read('test.mseed')
 new_picks = streamPick(st)
 
-new_picks.picks
+new_picks.getPicks()
 >>> List of obspy.core.event.Pick objects
+```
+
+You can save the picks as a **QuakeML** catalog. And handle the catalog through ObsPy:
+
+```python
+from obspy.core import event
+
+cat = event.readEvents('myPicks.xml')
 ```
 
 Usage
 -----
+StreamPick Gui. Navigate through the timeseries with the Mouse wheel: Click and Drag the plot to move in time, use the mouse wheel to zoom in and out.
 
-[Screenshots]
+![streamPick-gui](https://raw.github.com/miili/StreamPick/master/img/streamPick-gui.png)
+
+Mouse click and **q** sets P-Wave arrival, **w** S-Wave pick. Click and push **t** for custom wave phase, hit **r** to remove picks from trace.
+
+Check ``About`` for more useful hotkeys:
+
+![streamPick-about](https://raw.github.com/miili/StreamPick/master/img/streamPick-about.png)
 
 Installation
 ------------
@@ -34,6 +49,11 @@ Clone from the GitHub repository
 git clone https://github.com/miili/StreamPick.git
 ```
 
+```python
+from streamPick import *
+```
+see above
+
 Through Python PIP
 
 ```bash
@@ -44,11 +64,11 @@ Dependencies
 ------------
 streamPick relies on:
 
-* PyQt
-* ObsPy
-* NumPy
-* SciPy
-* Matplotlib
+* PyQt4
+* ObsPy (tested v0.8.4)
+* NumPy (tested v1.7.1)
+* SciPy (tested v0.12.0)
+* Matplotlib (tested v1.1.1rc)
 
 
 Development
