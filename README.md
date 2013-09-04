@@ -32,9 +32,9 @@ StreamPick Gui. Navigate through the timeseries with the Mouse wheel: Click and 
 
 ![streamPick-gui](https://raw.github.com/miili/StreamPick/master/img/streamPick-gui.png)
 
-Mouse click and **q** sets P-Wave arrival, **w** S-Wave pick. Click and push **t** for custom wave phase, hit **r** to remove picks from trace.
+Mouse click and key **Q** sets P-Wave, **W** S-Wave arrival. Click and push **T** for custom wave phase, hit **R** to remove picks from trace.
 
-Check ``About`` for more useful hotkeys:
+Check out ``About`` for more useful hotkeys:
 
 ![streamPick-about](https://raw.github.com/miili/StreamPick/master/img/streamPick-about.png)
 
