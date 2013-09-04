@@ -28,11 +28,13 @@ cat = event.readEvents('myPicks.xml')
 
 Usage
 -----
-StreamPick Gui
+StreamPick Gui. Navigate through the timeseries with the Mouse wheel: Click and Drag the plot to move in time, use the mouse wheel to zoom in and out.
 
 ![streamPick-gui](https://raw.github.com/miili/StreamPick/master/img/streamPick-gui.png)
 
-Check ``About`` for useful hotkeys
+Mouse click and **q** sets P-Wave arrival, **w** S-Wave pick. Click and push **t** for custom wave phase, hit **r** to remove picks from trace.
+
+Check ``About`` for more useful hotkeys:
 
 ![streamPick-about](https://raw.github.com/miili/StreamPick/master/img/streamPick-about.png)
 
