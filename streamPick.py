@@ -699,10 +699,13 @@ class streamPick(QtGui.QMainWindow):
                 <blockquote>
                 <table>
                     <tr>
-                        <td width=20><b>%s</b></td><td>Next stream</td>
+                        <td width=20><b>%s</b></td><td>Next station</td>
                     </tr>
                     <tr>
-                        <td width=20><b>%s</b></td><td>Previous stream</td>
+                        <td width=20><b>%s</b></td><td>Previous station</td>
+                    </tr>
+                    <tr>
+                        <td width=20><b>%s</b></td><td>Toggle filter</td>
                     </tr>
                     <tr>
                         <td width=20><b>%s</b></td>
@@ -741,6 +744,7 @@ class streamPick(QtGui.QMainWindow):
                 """ % (
                     self._shortcuts['st_next'],
                     self._shortcuts['st_previous'],
+                    self._shortcuts['filter_apply'],
                     self._shortcuts['pick_p'],
                     self._shortcuts['pick_s'],
                     self._shortcuts['pick_custom'],
