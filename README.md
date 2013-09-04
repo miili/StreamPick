@@ -29,9 +29,11 @@ cat = event.readEvents('myPicks.xml')
 Usage
 -----
 StreamPick Gui
+
 ![streamPick-gui](https://raw.github.com/miili/StreamPick/master/img/streamPick-gui.png)
 
 Check ``About`` for useful hotkeys
+
 ![streamPick-about](https://raw.github.com/miili/StreamPick/master/img/streamPick-about.png)
 
 Installation
