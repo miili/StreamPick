@@ -14,8 +14,16 @@ from streamPick import *
 st = read('test.mseed')
 new_picks = streamPick(st)
 
-new_picks.picks
+new_picks.getPicks()
 >>> List of obspy.core.event.Pick objects
+```
+
+You can save the picks as a **QuakeML** catalog. And handle the catalog through ObsPy:
+
+```python
+from obspy.core import event
+
+cat = event.readEvents('myPicks.xml')
 ```
 
 Usage
@@ -42,11 +50,11 @@ from streamPick import *
 ```
 see above
 
-# Through Python PIP
+Through Python PIP
 
-# ```bash
-# pip install https://github.com/miili/StreamPick/archive/master.zip
-# ```
+```bash
+pip install https://github.com/miili/StreamPick/archive/master.zip
+```
 
 Dependencies
 ------------
