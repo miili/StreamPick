@@ -85,3 +85,7 @@ Contributing
 Everybody is welcome to contribute! :)
 
 Please follow ObsPy's styles https://github.com/obspy/obspy/wiki#developer-corner 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/miili/streampick/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
