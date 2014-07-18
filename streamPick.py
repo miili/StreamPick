@@ -15,6 +15,7 @@ from matplotlib.transforms import offset_copy
 class streamPick(QtGui.QMainWindow):
     def __init__(self, stream=None, parent=None):
         # Initialising QtGui
+        QtCore.QLocale.setDefault(QtCore.QLocale.c())
         qApp = QtGui.QApplication(sys.argv)
 
         # Init vars
