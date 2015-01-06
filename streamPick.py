@@ -261,7 +261,7 @@ class streamPick(QtGui.QMainWindow):
         self._current_st.sort(['channel'])
         self._current_st.detrend('linear')
 
-    def _setPick(self, xdata, phase, channel, polarity='undecideable'):
+    def _setPick(self, xdata, phase, channel, polarity='undecideable', overwrite_existing=False):
         '''
         Write obspy.core.event.Pick into self._picks list
         '''
@@ -271,15 +271,16 @@ class streamPick(QtGui.QMainWindow):
         this_pick = event.Pick()
         overwrite = True
         # Overwrite existing phase's picktime
-        for _pick in self._getPicks():
-            if _pick.phase_hint == phase and\
-                    _pick.waveform_id.channel_code == channel:
-                this_pick = _pick
-                overwrite = False
-                break
+        if overwrite_existing:
+            for _pick in self._getPicks():
+                if _pick.phase_hint == phase and\
+                        _pick.waveform_id.channel_code == channel:
+                    this_pick = _pick
+                    overwrite = False
+                    break
 
         creation_info = event.CreationInfo(
-            author='ObsPy.Stream.pick()',
+            author='ObsPy.StreamPick',
             creation_time=UTCDateTime())
         # Create new event.Pick()
         this_pick.time = picktime
@@ -342,6 +343,7 @@ class streamPick(QtGui.QMainWindow):
         for _ax in self.fig.get_axes():
             lines = []
             labels = []
+            points = []
             transOffset = offset_copy(_ax.transData, fig=self.fig,
                             x=5, y=0, units='points')
             for _i, _xpick in enumerate(xpicks):
@@ -352,14 +354,17 @@ class streamPick(QtGui.QMainWindow):
                 else:
                     color = 'b'
                 if _ax.channel != picks[_i].waveform_id.channel_code:
-                    alpha = .1
+                    alpha = .2
                 else:
                     alpha = .8
 
                 lines.append(matplotlib.lines.Line2D([_xpick, _xpick],
                             [_ax.get_ylim()[0]*.9, _ax.get_ylim()[1]*.8],
-                            color=color, alpha=alpha))
+                            color=color, alpha=alpha, rasterized=True))
                 lines[-1].obspy_pick = picks[_i]
+
+                points.append(matplotlib.lines.Line2D([_xpick], [_ax.lines[0].get_ydata()[int(_xpick)]],
+                            marker='o', mfc=color, mec=color, alpha=alpha, ms=5))
 
                 labels.append(matplotlib.text.Text(_xpick,
                             _ax.get_ylim()[0]*.8, text=picks[_i].phase_hint,
@@ -369,10 +374,10 @@ class streamPick(QtGui.QMainWindow):
             # delete all artists
             del _ax.artists[0:]
             # add updated objects
-            for line in lines:
-                _ax.add_artist(line)
-            for label in labels:
-                _ax.add_artist(label)
+            for li, la, po in zip(lines, labels, points):
+                _ax.add_artist(li)
+                _ax.add_artist(la)
+                _ax.add_artist(po)
 
         if draw:
             self._canvasDraw()
@@ -764,6 +769,7 @@ class streamPick(QtGui.QMainWindow):
         self.canvas.draw_idle()
         self.canvas.flush_events()
         self.canvas.setFocus()
+        return
 
     def closeEvent(self, evnt):
         '''
