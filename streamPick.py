@@ -207,20 +207,22 @@ class streamPick(QtGui.QMainWindow):
         self._appFilter(draw=False)
         for _i, tr in enumerate(self._current_st):
             ax = self.fig.add_subplot(num_plots, 1, _i)
-            ax.plot(tr.data, 'k')
+            ax.plot(tr.data, 'k', antialiased=True, rasterized=True, lod=False)
             ax.axhline(0, color='k', alpha=.05)
             ax.set_xlim([0, tr.data.size])
-            ax.text(.925, .9, self._current_st[_i].stats.channel,
-                        transform=ax.transAxes, va='top', ma='left')
+            ax.text(.02, .925, self._current_st[_i].id,
+                        transform=ax.transAxes, va='top', ha='left', alpha=.75)
             ax.channel = tr.stats.channel
             if _i == 0:
                 ax.set_xlabel('Seconds')
 
         # plot picks
         self._drawPicks(draw=False)
-        self.fig.suptitle('%s - %s - %s' % (self._current_st[-1].stats.network,
+        self.fig.suptitle('%s - %s - %s / %.1f Hz / %d samples per chanel' % (self._current_st[-1].stats.network,
                             self._current_st[-1].stats.station,
-                            self._current_st[-1].stats.starttime.isoformat()),
+                            self._current_st[-1].stats.starttime.isoformat(),
+                            1./self._current_st[-1].stats.delta,
+                            self._current_st[-1].stats.npts),
                             x=.2)
         self._updateSB()
         self._canvasDraw()
@@ -758,9 +760,9 @@ class streamPick(QtGui.QMainWindow):
         Redraws the canvas and re-sets mouse focus
         '''
         for _i, _ax in enumerate(self.fig.get_axes()):
-            _ax.set_xticklabels(_ax.get_xticks() *
-                                self._current_st[_i].stats.delta)
-        self.fig.canvas.draw()
+            _ax.set_xticklabels(_ax.get_xticks() * self._current_st[_i].stats.delta)
+        self.canvas.draw_idle()
+        self.canvas.flush_events()
         self.canvas.setFocus()
 
     def closeEvent(self, evnt):
