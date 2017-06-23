@@ -1,6 +1,8 @@
 StreamPick
 ==========
 
+**This Project is not supported anymore, see http://pyrocko.org Snuffler for seismic data inspection and picking!**
+
 A leightweight PyQt frontend to pick seismic wave arrival times in traces contained in an [ObsPy](http://www.obspy.org) [Stream](http://docs.obspy.org/master/packages/autogen/obspy.core.stream.Stream.html#obspy.core.stream.Stream) object. For further processing the picks can be treated in ObsPy or exported to QuakeML format (see [obspy.core.event](http://docs.obspy.org/master/packages/autogen/obspy.core.event.html) and https://quake.ethz.ch/quakeml/).
 
 Running the Program
